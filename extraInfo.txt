@@ -1,0 +1,17 @@
+To restart apache and mysql/phpmyadmin
+sudo /opt/lampstack-5.4.10-0/manager-linux-x64.run
+
+to edit file
+pluma (not gedit)
+
+to get permissions
+getfacl <file, folder, etc.>
+
+log for starting services
+Starting all servers...
+Starting MySQL Database...
+140107 18:34:18 mysqld_safe Logging to '/opt/lampstack-5.4.10-0/mysql/data/mysqld.log'.
+140107 18:34:18 mysqld_safe Starting mysqld.bin daemon with databases from /opt/lampstack-5.4.10-0/mysql/data
+/opt/lampstack-5.4.10-0/mysql/scripts/ctl.sh : mysql  started at port 3306
+Starting Apache Web Server...
+/opt/lampstack-5.4.10-0/apache2/scripts/ctl.sh : httpd started at port 80

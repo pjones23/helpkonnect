@@ -1,0 +1,109 @@
+/**
+ * @author PerronJones
+ */
+
+function navigateToNewUser(user) {
+
+	$.mobile.changePage("#newUser");
+	
+	initializeNewUserFields(user);
+
+}
+
+$('#setting_dialog').live('pageshow', function(event, ui) {
+	console.log("Settings page loaded!");
+	initializeSettingsFields();
+
+});
+
+
+function initializeNewUserFields(currentUser) {
+	console.log("initializing new user fields");
+
+	$('input#newUser_firstNameInput').val(currentUser.first_name);
+	$('input#newUser_lastNameInput').val(currentUser.last_name);
+	$('input#newUser_emailInput').val(currentUser.email);
+	$('input#newUser_FBid').val(currentUser.id);
+
+	//set paypal radio button
+	
+	$('input#newUser_yesPayPal').attr("checked", false).checkboxradio("refresh");
+	$('input#newUser_noPayPal').attr("checked", true).checkboxradio("refresh");
+
+	//set request alert options
+	
+	$('input#newUser_emailAlertBox').attr("checked", true).checkboxradio("refresh");
+	
+	$('input#newUser_smsAlertBox').attr("checked", false).checkboxradio("refresh");
+
+	console.log("done initializing new user fields");
+
+}
+
+
+function createUserAndContinue() {
+	/*
+	 * Check for phone numver if using sms
+	 * check for email address if using email
+	 * check for paypal email if using paypal
+	 */
+
+	
+	console.log("creating");
+	var firstName = $('input#newUser_firstNameInput').val();
+	var lastName = $('input#newUser_lastNameInput').val();
+	var email = $('input#newUser_emailInput').val();
+	var phone = $('input#newUser_phoneInput').val();
+	var usePayPal = $('input#newUser_yesPayPal').is(':checked');
+	var payPalEmail = $('input#newUser_PayPalEmail').val();
+	var useEmail = $('input#newUser_emailAlertBox').is(':checked');
+	var useSMS = $('input#newUser_smsAlertBox').is(':checked');
+	var id = $('input#newUser_FBid').val();
+
+	/*
+	 * Check for phone numver if using sms
+	 * check for email address if using email
+	 * check for paypal email if using paypal
+	 */
+	var saveUser = true;
+
+	if (usePayPal == true && (payPalEmail == null || payPalEmail.length < 1)) {
+		saveUser = false;
+		alert("You must enter a PayPal Email Address if you want to use PayPal to receive payments.");
+	}
+
+	if (useEmail == true && (email == null || email.length < 1)) {
+		saveUser = false;
+		alert("You must enter an email address if you want to receive email alerts.");
+	}
+
+	if (useSMS == true && (phone == null || phone.length < 1)) {
+		saveUser = false;
+		alert("You must enter a phone number if you want to receive SMS alerts.");
+	}
+
+	console.log(id);
+	console.log(firstName);
+	console.log(lastName);
+	console.log(email);
+	console.log(phone);
+	console.log(usePayPal);
+	console.log(payPalEmail);
+	console.log(useEmail);
+	console.log(useSMS);
+
+	if (saveUser == true) {
+		
+		createUser(id, firstName, lastName, email, phone, 0, 0, usePayPal ? 1 : 0, payPalEmail, useEmail ? 1 : 0, useSMS ? 1 : 0);
+		console.log("resetting currentUser");
+		setTimeout(function() {
+			//setCurrentUser(id);
+			console.log("exiting");
+			alert("Your profile has been created.");
+
+			//acts as the back button
+			getFBLoginStatus();
+		}, 500);
+		
+	}
+}

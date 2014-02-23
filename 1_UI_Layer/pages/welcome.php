@@ -61,7 +61,7 @@
 						</div>
 					</div>
 
-					<div class="inner cover">
+					<div >
 						<h1 class="cover-heading">Helpkonnect</h1>
 						<p class="lead">
 							Search. Connect. Collaborate.

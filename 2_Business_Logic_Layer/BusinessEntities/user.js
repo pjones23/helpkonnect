@@ -50,7 +50,7 @@ function locationSuccess(location) {
 	currentUser.Latitude=location.coords.latitude;
 	currentUser.Longitude=location.coords.longitude;
 	
-	updateUser(currentUser.UserID, currentUser.FirstName, currentUser.LastName, currentUser.Email, currentUser.Phone, location.coords.latitude, location.coords.longitude, currentUser.UsePayPal, currentUser.PayPalEmail, currentUser.EmailAlert, currentUser.SMSAlert);
+	updateUser(currentUser.UserID, null, currentUser.FBuserID, currentUser.FirstName, currentUser.LastName, currentUser.Email, currentUser.Phone, location.coords.latitude, location.coords.longitude, currentUser.UsePayPal, currentUser.PayPalEmail, currentUser.EmailAlert, currentUser.SMSAlert);
 	alert("Your location has been updated successfully!");
 }
 
@@ -87,7 +87,7 @@ function locationSuccessFromInitialization(location) {
 	currentUser.Latitude=location.coords.latitude;
 	currentUser.Longitude=location.coords.longitude;
 	
-	updateUser(currentUser.UserID, currentUser.FirstName, currentUser.LastName, currentUser.Email, currentUser.Phone, location.coords.latitude, location.coords.longitude, currentUser.UsePayPal, currentUser.PayPalEmail, currentUser.EmailAlert, currentUser.SMSAlert);
+	updateUser(currentUser.UserID, null, currentUser.FirstName, currentUser.LastName, currentUser.Email, currentUser.Phone, location.coords.latitude, location.coords.longitude, currentUser.UsePayPal, currentUser.PayPalEmail, currentUser.EmailAlert, currentUser.SMSAlert);
 	//no alert
 }
 
@@ -97,15 +97,15 @@ function locationSuccessFromInitialization(location) {
  * ----------------------------------------------------------------------------------------------------
  */
 
-function createUser(id, firstName, lastName, email, phone, usePayPal, payPalEmail, emailAlert, SMSAlert) {
+function createUser(id, FBuserID, firstName, lastName, email, phone, usePayPal, payPalEmail, emailAlert, SMSAlert) {
 	//re visit and finish when working on front end
-	var user = new User(id, firstName, lastName, email, phone, null, null, usePayPal, payPalEmail, emailAlert, SMSAlert);
+	var user = new User(id, FBuserID, firstName, lastName, email, phone, null, null, usePayPal, payPalEmail, emailAlert, SMSAlert);
 	user.create();
 }
 
 function readUserByEmail(email) {
 	//re visit and finish when working on front end
-	var user = new User(null, null, null, null, email, null, null, null);
+	var user = new User(null, null, null, null, email, null, null, null, null, null, null, null);
 	var promise = user.read("Email", user.email);
 	
 	//reset user
@@ -122,7 +122,7 @@ function readUserByEmail(email) {
 
 function readUser(userID) {
 	//re visit and finish when working on front end
-	var user = new User(userID, null, null, null, null, null, null);
+	var user = new User(userID, null, null, null, null, null, null, null, null, null, null, null);
 	var promise = user.read("ID", user.userID);
 	
 	//reset user
@@ -139,7 +139,7 @@ function readUser(userID) {
 
 function readAllUsers() {
 	//re visit and finish when working on front end
-	var users = new User(null, null, null, null, null, null, null);
+	var users = new User(null, null, null, null, null, null, null, null, null, null, null, null);
 	var promise = users.readAll();
 
 	//reset users
@@ -153,15 +153,15 @@ function readAllUsers() {
 	return users;
 }
 
-function updateUser(userID, firstName, lastName, email, phone, latitude, longitude, usePayPal, payPalEmail, emailAlert, SMSAlert) {
+function updateUser(userID, FBuserID, firstName, lastName, email, phone, latitude, longitude, usePayPal, payPalEmail, emailAlert, SMSAlert) {
 	//re visit and finish when working on front end
-	var user = new User(userID, firstName, lastName, email, phone, latitude, longitude, usePayPal, payPalEmail, emailAlert, SMSAlert);
+	var user = new User(userID, FBuserID, firstName, lastName, email, phone, latitude, longitude, usePayPal, payPalEmail, emailAlert, SMSAlert);
 	user.update();
 }
 
 function deleteUser(userID) {
 	//re visit and finish when working on front end
-	var user = new User(userID, null, null, null, null, null, null);
+	var user = new User(userID, null, null, null, null, null, null, null, null, null, null, null);
 	user.deleteUser();
 }
 

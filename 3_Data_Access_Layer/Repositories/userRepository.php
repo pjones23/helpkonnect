@@ -68,7 +68,7 @@
 		
 		
 		function updateUser($userID, $firstName, $lastName, $email, $phone, $latitude, $longitude, $usePayPal, $payPalEmail, $emailAlert, $SMSAlert) {
-		
+			
 			$dbQuery = sprintf("UPDATE `HelpConnectUser` SET `FirstName`='%s',`LastName`='%s',`Email`='%s',`Phone`='%s',`Latitude`='%s',`Longitude`='%s',`UsePayPal`='%s',`PayPalEmail`='%s',`EmailAlert`='%s',`SMSAlert`='%s' WHERE `UserID`='%s';", 
 				mysql_real_escape_string($firstName), 
 				mysql_real_escape_string($lastName), 

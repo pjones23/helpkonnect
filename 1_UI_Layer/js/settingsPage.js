@@ -95,7 +95,7 @@ function SaveSettingsAndExit() {
 		saveUser = false;
 		alert("You must enter a phone number if you want to receive SMS alerts.");
 	}
-
+/*
 	console.log(firstName);
 	console.log(lastName);
 	console.log(email);
@@ -104,10 +104,10 @@ function SaveSettingsAndExit() {
 	console.log(payPalEmail);
 	console.log(useEmail);
 	console.log(useSMS);
-
+*/
 	if (saveUser == true) {
 		//updateUser(currentUser.UserID, currentUser.FirstName, currentUser.LastName, currentUser.Email, currentUser.Phone, currentUser.Latitude, currentUser.Longitude);
-		updateUser(currentUser.UserID, firstName, lastName, email, phone, currentUser.Latitude, currentUser.Longitude, usePayPal ? 1 : 0, payPalEmail, useEmail ? 1 : 0, useSMS ? 1 : 0);
+		updateUser(currentUser.UserID, null, firstName, lastName, email, phone, currentUser.Latitude, currentUser.Longitude, usePayPal ? 1 : 0, payPalEmail, useEmail ? 1 : 0, useSMS ? 1 : 0);
 		console.log("resetting currentUser");
 		setTimeout(function() {
 			setCurrentUser(currentUser.UserID);

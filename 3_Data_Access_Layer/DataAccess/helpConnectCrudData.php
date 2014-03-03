@@ -9,10 +9,10 @@ include 'db_helper.php';
  * ------------------------------------------------------------------------------------------------------------------------
  */
 
-function createUser($userID, $firstName, $lastName, $email, $phone, $latitude, $longitude) {
+function createUser($FBUserID, $firstName, $lastName, $email, $phone, $latitude, $longitude) {
 	
-	$dbQuery = sprintf("INSERT INTO `HelpConnectUser` (`UserID`, `FirstName`, `LastName`, `Email`, `Phone`, `Latitude`, `Longitude`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');", 
-		mysql_real_escape_string($userID),
+	$dbQuery = sprintf("INSERT INTO `HelpConnectUser` (`FBUserID`, `FirstName`, `LastName`, `Email`, `Phone`, `Latitude`, `Longitude`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');", 
+		mysql_real_escape_string($FBUserID),
 		mysql_real_escape_string($firstName), 
 		mysql_real_escape_string($lastName), 
 		mysql_real_escape_string($email), 
@@ -26,9 +26,9 @@ function createUser($userID, $firstName, $lastName, $email, $phone, $latitude, $
 	echo json_encode($result);
 }
 
-function readUser($userID) {
+function readUser($email) {
 
-	$dbQuery = sprintf("SELECT * FROM `HelpConnectUser` WHERE `UserID`='%s';", mysql_real_escape_string($userID));
+	$dbQuery = sprintf("SELECT * FROM `HelpConnectUser` WHERE `Email`='%s';", mysql_real_escape_string($email));
 
 	$result=getDBResultRecord($dbQuery);
 	header("Content-type: application/json");

@@ -34,8 +34,8 @@ include_once '2_Business_Logic_Layer/Helper/userHelper.php';
 		 * @url GET user/:id
 		 */
 		function readUser($id = null){
-			$userRepo = new userRepository;			
-			$userRepo->readUser($id);
+			$userRepo = new userRepository;
+			$userRepo->readUserController($_POST['Action'], $_POST['SearchItem']);
 		}	
 			
 		/**

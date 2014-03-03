@@ -11,7 +11,7 @@ function setCurrentUser(userID){
 	//necessary fields needed for creation (firstName, lastName, email, phone, latitude, longitude)
 	//If the user does exist, then set the current user.
 	//Also, update the position.
-	
+	console.log("user.js(setCurrentUser): userID: " + userID);
 	var user = readUser(userID);
 	//var user = readUser(1232);
 	
@@ -103,10 +103,27 @@ function createUser(id, firstName, lastName, email, phone, usePayPal, payPalEmai
 	user.create();
 }
 
+function readUserByEmail(email) {
+	//re visit and finish when working on front end
+	var user = new User(null, null, null, null, email, null, null, null);
+	var promise = user.read("Email", user.email);
+	
+	//reset user
+	user = null;
+	
+	promise.success(function(data) {
+		console.log("attempt: " + data.success)
+		user = data;
+	});
+
+	console.log(user);
+	return user;
+}
+
 function readUser(userID) {
 	//re visit and finish when working on front end
 	var user = new User(userID, null, null, null, null, null, null);
-	var promise = user.read();
+	var promise = user.read("ID", user.userID);
 	
 	//reset user
 	user = null;
@@ -154,8 +171,9 @@ function deleteUser(userID) {
  * ----------------------------------------------------------------------------------------------------
  */
 
-function User(userID, firstName, lastName, email, phone, latitude, longitude, usePayPal, payPalEmail, emailAlert, SMSAlert) {
+function User(userID, FBUserID, firstName, lastName, email, phone, latitude, longitude, usePayPal, payPalEmail, emailAlert, SMSAlert) {
 	this.userID = userID;
+	this.FBUserID = FBUserID;
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.email = email;
@@ -171,7 +189,7 @@ function User(userID, firstName, lastName, email, phone, latitude, longitude, us
 		return $.ajax({
 			url : "user",
 			data : {
-				'UserID' : this.userID,
+				'FBUserID' : this.FBUserID,
 				'FirstName' : this.firstName,
 				'LastName' : this.lastName,
 				'Email' : this.email,
@@ -199,11 +217,19 @@ function User(userID, firstName, lastName, email, phone, latitude, longitude, us
 		});
 	}
 
-	this.read = function() {
+	this.read = function(action, searchItem) {
 		return $.ajax({
-			url : "user/" + this.userID,
+			url : "user/" + searchItem,
 			context : document.body,
 			async : false,
+			headers : {
+				'X-HTTP-Method-Override' : 'GET'
+			},
+			type : 'POST',
+			data : {
+				'Action' : action,
+				'SearchItem' : searchItem
+			},
 			dataType : "json",
 			success : function(data) {
 				console.log("Data Success");

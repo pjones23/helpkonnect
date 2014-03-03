@@ -37,10 +37,10 @@
 							Search. Connect. Collaborate.
 						</p>
 						<p class="lead">
-							<form class="form-signin" role="form">
+							<form class="form-signin" role="form" onsubmit="loginUser(); return false;">
 								<h4 class="form-signin-heading">Please sign in</h4>
-								<input type="email" class="form-control" placeholder="Email address" required autofocus>
-								<input type="password" class="form-control" placeholder="Password (Disabled for beta)" disabled="true"> <!-- required // insert this attribute after beta--> 
+								<input id="signinEmail" type="email" class="form-control" placeholder="Email address" required autofocus>
+								<input id="signinPassword" type="password" class="form-control" placeholder="Password (Disabled for beta)" disabled="true"> <!-- required // insert this attribute after beta--> 
 								<!-- <label class="checkbox">
 								<input type="checkbox" value="remember-me">
 								Remember me </label> -->
@@ -76,6 +76,7 @@
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="../../Utilities/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/1_UI_Layer/js/docs.min.js"></script>
+		<script src="../../2_Business_Logic_Layer/BusinessEntities/user.js"></script>
+		<script src="../../1_UI_Layer/js/loginProcesses.js"></script>
 	</body>
 </html>

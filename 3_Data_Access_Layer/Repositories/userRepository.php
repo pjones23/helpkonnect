@@ -4,10 +4,10 @@
 	class userRepository{
 		
 
-		function createUser($userID, $firstName, $lastName, $email, $phone, $latitude, $longitude, $usePayPal, $payPalEmail, $emailAlert, $SMSAlert) {
+		function createUser($FBUserID, $firstName, $lastName, $email, $phone, $latitude, $longitude, $usePayPal, $payPalEmail, $emailAlert, $SMSAlert) {
 			
-			$dbQuery = sprintf("INSERT INTO `HelpConnectUser` (`UserID`, `FirstName`, `LastName`, `Email`, `Phone`, `Latitude`, `Longitude`, `UsePayPal`, `PayPalEmail`, `EmailAlert`, `SMSAlert`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", 
-				mysql_real_escape_string($userID),
+			$dbQuery = sprintf("INSERT INTO `HelpConnectUser` (`FBUserID`, `FirstName`, `LastName`, `Email`, `Phone`, `Latitude`, `Longitude`, `UsePayPal`, `PayPalEmail`, `EmailAlert`, `SMSAlert`) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", 
+				mysql_real_escape_string($FBUserID),
 				mysql_real_escape_string($firstName), 
 				mysql_real_escape_string($lastName), 
 				mysql_real_escape_string($email), 
@@ -18,16 +18,39 @@
 				mysql_real_escape_string($payPalEmail), 
 				mysql_real_escape_string($emailAlert), 
 				mysql_real_escape_string($SMSAlert));
+				
 		
 			$result = getDBResultInserted($dbQuery, 'UserID');
 		
 			header("Content-type: application/json");
-			echo json_encode($result);
+			#echo json_encode($result);
+			echo json_encode($email);
 		}
+		
+		function readUserController($action, $searchItem){
+		if($action == "ID"){
+			$this->readUser($searchItem);
+		}
+		else if($action == "Email"){
+			$this->readUserByEmail($searchItem);
+		}
+		else{
+			$this->readAllServices();
+		}
+	}
 		
 		function readUser($userID) {
 		
 			$dbQuery = sprintf("SELECT * FROM `HelpConnectUser` WHERE `UserID`='%s';", mysql_real_escape_string($userID));
+		
+			$result=getDBResultRecord($dbQuery);
+			header("Content-type: application/json");
+			echo json_encode($result);
+		}
+		
+		function readUserByEmail($email) {
+		
+			$dbQuery = sprintf("SELECT * FROM `HelpConnectUser` WHERE `Email`='%s';", mysql_real_escape_string($email));
 		
 			$result=getDBResultRecord($dbQuery);
 			header("Content-type: application/json");

@@ -22,21 +22,21 @@
 			//   },
 			//   success: function() {}
 			// });
-/*
-			$(document).bind('mobileinit', function() {
-				$.mobile.loader.prototype.options.text = "loading";
-				$.mobile.loader.prototype.options.textVisible = false;
-				$.mobile.loader.prototype.options.theme = "a";
-				$.mobile.loader.prototype.options.html = "";
-			});
+			/*
+			 $(document).bind('mobileinit', function() {
+			 $.mobile.loader.prototype.options.text = "loading";
+			 $.mobile.loader.prototype.options.textVisible = false;
+			 $.mobile.loader.prototype.options.theme = "a";
+			 $.mobile.loader.prototype.options.html = "";
+			 });
 
-			$.mobile.loading('show', {
-				text : 'foo',
-				textVisible : true,
-				theme : 'z',
-				html : ""
-			});
-*/
+			 $.mobile.loading('show', {
+			 text : 'foo',
+			 textVisible : true,
+			 theme : 'z',
+			 html : ""
+			 });
+			 */
 		</script>
 
 		<!-- <script src="/Utilities/paypal-button.min.js"></script> -->
@@ -76,10 +76,18 @@
 		include $_SERVER["DOCUMENT_ROOT"] . 'ChromePhp.php';
 		?>
 
-		<!-- Login -->
+		<!-- Welcome -->
+		
 		<div data-role="page" id="login">
+		<?php
+		include 'welcome.php';
+		?>
+		</div>
+		
+		<!-- Home -->
+		<div data-role="page" id="home">
 			<?php
-			include 'login.php';
+			include 'home.php';
 			?>
 		</div>
 
@@ -87,13 +95,6 @@
 		<div data-role="page" id="newUser">
 			<?php
 			include 'newUser.php';
-			?>
-		</div>
-
-		<!-- Home -->
-		<div data-role="page" id="home">
-			<?php
-			include 'home.php';
 			?>
 		</div>
 
@@ -156,7 +157,6 @@
 			include 'authorizeRequest.php';
 			?>
 		</div>
-
 
 	</body>
 </html>

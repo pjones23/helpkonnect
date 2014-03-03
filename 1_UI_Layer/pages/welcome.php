@@ -1,10 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 		<title>HelpKonnect</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="../../Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/1_UI_Layer/css/cover.css" rel="stylesheet">
+		<link href="../../1_UI_Layer/css/cover.css" rel="stylesheet">
+		<link href="../../1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
+		<link href="../../1_UI_Layer/css/signin.css" rel="stylesheet">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -13,16 +22,7 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<style>
-		body {
-			padding-top: 50px;
-		}
-		.starter-template {
-			padding: 40px 15px;
-			text-align: center;
-		}
 
-	</style>
 	<body>
 
 		<div class="site-wrapper">
@@ -31,56 +31,34 @@
 
 				<div class="cover-container">
 
-					<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-						<div class="container">
-							<div class="navbar-header">
-								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-								<a class="navbar-brand" href="#">HelpKonnect</a>
-								<button type="button" class="btn btn-lg btn-primary navbar-brand" style="color: white; margin-left: 10px;">
-									Sign in
-								</button>
-							</div>
-							<div class="collapse navbar-collapse pull-right">
-								<ul class="nav navbar-nav">
-									<li class="active">
-										<a href="#">Home</a>
-									</li>
-									<li>
-										<a href="#about">About</a>
-									</li>
-									<li>
-										<a href="#contact">Contact</a>
-									</li>
-								</ul>
-							</div><!--/.nav-collapse -->
-						</div>
-					</div>
-
-					<div >
+					<div class="inner cover">
 						<h1 class="cover-heading">Helpkonnect</h1>
 						<p class="lead">
 							Search. Connect. Collaborate.
 						</p>
 						<p class="lead">
+							<form class="form-signin" role="form" onsubmit="loginUser(); return false;">
+								<h4 class="form-signin-heading">Please sign in</h4>
+								<input id="signinEmail" type="email" class="form-control" placeholder="Email address" required autofocus>
+								<input id="signinPassword" type="password" class="form-control" placeholder="Password (Disabled for beta)" disabled="true"> <!-- required // insert this attribute after beta--> 
+								<!-- <label class="checkbox">
+								<input type="checkbox" value="remember-me">
+								Remember me </label> -->
+								<button class="btn btn-lg btn-primary btn-block" style="background-color: rgb(204,204,0); color:black;" type="submit">
+									Sign in
+								</button>
+								<p class="text-muted"> OR </p>
+								<a class="btn btn-lg btn-primary btn-block" href="#" role="button" style="background-color: rgb(204,204,0); color:black;">Sign up today</a>
+								<br />
+								<a href="#" class="btn btn-lg btn-default btn-block">Learn more</a>
+							</form>
 
-							<a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a>
-							<br />
-							<br />
-							<a href="#" class="btn btn-lg btn-default">Learn more</a>
 						</p>
 					</div>
 
 					<div class="mastfoot">
 						<div class="inner">
 							<footer>
-								<p class="pull-right">
-									<a href="#">Back to top</a>
-								</p>
 								<p>
 									&copy; 2014 Helpkonnect, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
 								</p>
@@ -94,10 +72,7 @@
 
 		</div>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://code.jquery.com/jquery.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="../../Utilities/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/1_UI_Layer/js/docs.min.js"></script>
 	</body>
 </html>

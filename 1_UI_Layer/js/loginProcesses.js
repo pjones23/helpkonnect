@@ -2,20 +2,29 @@
  * @author PerronJones
  */
 
+$('#signinForm').submit(function(event){
+    // cancels the form submission
+    event.preventDefault();
+
+    // do whatever you want here
+    console.log("submitted");
+    loginUser();
+    return false;
+});
+
 function loginUser() {
-	var email = $('#signinEmail').val();
 	
-	console.log(email);
+	var email = $('#signinEmail').val();
 	
 	var userExists = doesUserExist(email);
 
-	if (userExists[0]) {
+	if (userExists[0] && userExists[1] != null) {
+		$('#AccountFoundStatus').attr("style","display: none;");
 		
 		initiateCurrentUser(userExists[1]);
-		$('body').fadeOut(500,function newpage() {console.log("welcome");$.mobile.changePage("#home");console.log("home");$('body').fadeIn();});
-		console.log("loginProcesses.js (loginUser): " + userExists[1].UserID);
+		$.mobile.changePage("#home");
 	} else {
-		navigateToNewUser(response);
+		$('#AccountFoundStatus').attr("style","color: red;");
 	}
 	
 }

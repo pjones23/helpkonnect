@@ -2,11 +2,11 @@
  * @author PerronJones
  */
 
-function navigateToNewUser(user) {
+function navigateToNewUser(userEmail) {
 
 	$.mobile.changePage("#newUser");
 	
-	initializeNewUserFields(user);
+	initializeNewUserFields(userEmail);
 
 }
 
@@ -17,13 +17,10 @@ $('#setting_dialog').live('pageshow', function(event, ui) {
 });
 
 
-function initializeNewUserFields(currentUser) {
+function initializeNewUserFields(userEmail) {
 	console.log("initializing new user fields");
 
-	$('input#newUser_firstNameInput').val(currentUser.first_name);
-	$('input#newUser_lastNameInput').val(currentUser.last_name);
-	$('input#newUser_emailInput').val(currentUser.email);
-	$('input#newUser_FBid').val(currentUser.id);
+	$('input#newUser_emailInput').val(userEmail);
 
 	//set paypal radio button
 	

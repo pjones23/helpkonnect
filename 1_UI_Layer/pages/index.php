@@ -5,72 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Help Konnect</title>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-
-		<script>
-			// $('#loadingdiv').hide();
-			// console.log("beginning script");
-			// $.ajaxSetup({
-			//   beforeSend: function() {
-			// console.log("beforeSend");
-			//      $('#loadingdiv').show()
-			//   },
-			//   complete: function(){
-			// console.log("beforeSend");
-			//      $('#loadingdiv').hide()
-			//   },
-			//   success: function() {}
-			// });
-			/*
-			 $(document).bind('mobileinit', function() {
-			 $.mobile.loader.prototype.options.text = "loading";
-			 $.mobile.loader.prototype.options.textVisible = false;
-			 $.mobile.loader.prototype.options.theme = "a";
-			 $.mobile.loader.prototype.options.html = "";
-			 });
-
-			 $.mobile.loading('show', {
-			 text : 'foo',
-			 textVisible : true,
-			 theme : 'z',
-			 html : ""
-			 });
-			 */
-		</script>
-
-		<!-- <script src="/Utilities/paypal-button.min.js"></script> -->
-		<script src="/Utilities/sandbox-paypal-button.min.js"></script>
-		<script src="/1_UI_Layer/js/mailHelper.js"></script>
-
-		<script src="/2_Business_Logic_Layer/BusinessEntities/user.js"></script>
-		<script src="/2_Business_Logic_Layer/BusinessEntities/service.js"></script>
-		<script src="/2_Business_Logic_Layer/BusinessEntities/serviceStatus.js"></script>
-
-		<script src="/1_UI_Layer/js/loginProcesses.js"></script>
-
-		<!-- Scripts for New User -->
-		<script src="/1_UI_Layer/js/newUserPage.js"></script>
-
-		<!-- Scripts for Settings -->
-		<script src="/1_UI_Layer/js/settingsPage.js"></script>
-
-		<!-- Scripts for Check In -->
-
-		<!-- Scripts for Search -->
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa_Tt6cQ7UqiWMk9fVb7iKbeKaAwYeRoE&sensor=true"></script>
-		<script src="/1_UI_Layer/js/searchPage.js"></script>
-
-		<!-- Scripts for Offered Services -->
-		<script src="/1_UI_Layer/js/serviceOfferedPage.js"></script>
-
-		<!-- Scripts for Requested Services -->
-		<script src="/1_UI_Layer/js/serviceRequestsPage.js"></script>
+		<link href="/Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/1_UI_Layer/css/cover.css" rel="stylesheet">
+		<link href="/1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
+		<link href="/1_UI_Layer/css/signin.css" rel="stylesheet">	
 
 	</head>
 	<body>
-		<div id="fb-root"></div>
-		<script src="/1_UI_Layer/js/fb_auth.js"></script>
+		<!-- <div id="fb-root"></div>
+		<script src="/1_UI_Layer/js/fb_auth.js"></script>-->
 		<!-- ---------------------------------------------------------------------------------------- -->
 		<?php
 		include $_SERVER["DOCUMENT_ROOT"] . 'ChromePhp.php';
@@ -157,6 +100,41 @@
 			include 'authorizeRequest.php';
 			?>
 		</div>
+		
+		
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+		<!-- <script src="/Utilities/paypal-button.min.js"></script> -->
+		<script src="/Utilities/sandbox-paypal-button.min.js"></script>
+		<script src="/1_UI_Layer/js/mailHelper.js"></script>
+
+		<script src="/2_Business_Logic_Layer/BusinessEntities/user.js"></script>
+		<script src="/2_Business_Logic_Layer/BusinessEntities/service.js"></script>
+		<script src="/2_Business_Logic_Layer/BusinessEntities/serviceStatus.js"></script>
+
+		<script src="/1_UI_Layer/js/loginProcesses.js"></script>
+
+		<!-- Scripts for New User -->
+		<script src="/1_UI_Layer/js/newUserPage.js"></script>
+
+		<!-- Scripts for Settings -->
+		<script src="/1_UI_Layer/js/settingsPage.js"></script>
+
+		<!-- Scripts for Check In -->
+
+		<!-- Scripts for Search -->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa_Tt6cQ7UqiWMk9fVb7iKbeKaAwYeRoE&sensor=true"></script>
+		<script src="/1_UI_Layer/js/searchPage.js"></script>
+
+		<!-- Scripts for Offered Services -->
+		<script src="/1_UI_Layer/js/serviceOfferedPage.js"></script>
+
+		<!-- Scripts for Requested Services -->
+		<script src="/1_UI_Layer/js/serviceRequestsPage.js"></script>
+		
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- <script src="/Utilities/bootstrap/js/bootstrap.min.js"></script> -->
 
 	</body>
 </html>

@@ -10,10 +10,10 @@
 		<title>HelpKonnect</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
-		<link href="../../Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../../1_UI_Layer/css/cover.css" rel="stylesheet">
-		<link href="../../1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
-		<link href="../../1_UI_Layer/css/signin.css" rel="stylesheet">
+		<link href="/Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/1_UI_Layer/css/cover.css" rel="stylesheet">
+		<link href="/1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
+		<link href="/1_UI_Layer/css/signin.css" rel="stylesheet">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,18 +37,24 @@
 							Search. Connect. Collaborate.
 						</p>
 						<p class="lead">
-							<form class="form-signin" role="form" onsubmit="loginUser(); return false;">
+							<form id="signinForm" form-signin" role="form" >
 								<h4 class="form-signin-heading">Please sign in</h4>
+								<p id="AccountFoundStatus" style="display: none;">
+									Your account was not found. Please Try Again.
+								</p>
 								<input id="signinEmail" type="email" class="form-control" placeholder="Email address" required autofocus>
-								<input id="signinPassword" type="password" class="form-control" placeholder="Password (Disabled for beta)" disabled="true"> <!-- required // insert this attribute after beta--> 
+								<input id="signinPassword" type="password" class="form-control" placeholder="Password (Disabled for beta)" disabled="true">
+								<!-- required // insert this attribute after beta-->
 								<!-- <label class="checkbox">
 								<input type="checkbox" value="remember-me">
 								Remember me </label> -->
 								<button class="btn btn-lg btn-primary btn-block" style="background-color: rgb(204,204,0); color:black;" type="submit">
 									Sign in
 								</button>
-								<p class="text-muted"> OR </p>
-								<a class="btn btn-lg btn-primary btn-block" href="#" role="button" style="background-color: rgb(204,204,0); color:black;">Sign up today</a>
+								<p class="text-muted">
+									OR
+								</p>
+								<a class="btn btn-lg btn-primary btn-block" onclick="navigateToNewUser('');" role="button" style="background-color: rgb(204,204,0); color:black;">Sign up today</a>
 								<br />
 								<a href="#" class="btn btn-lg btn-default btn-block">Learn more</a>
 							</form>
@@ -72,7 +78,5 @@
 
 		</div>
 
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="../../Utilities/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

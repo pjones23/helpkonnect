@@ -1,6 +1,6 @@
 <?php
 	include_once $_SERVER["DOCUMENT_ROOT"] . "/3_Data_Access_Layer/DataAccess/db_helper.php";
-	
+
 	class userRepository{
 		
 
@@ -19,12 +19,12 @@
 				mysql_real_escape_string($emailAlert), 
 				mysql_real_escape_string($SMSAlert));
 				
-		
 			$result = getDBResultInserted($dbQuery, 'UserID');
-		
+			
+			ChromePhp::log(json_encode($result));
 			header("Content-type: application/json");
-			#echo json_encode($result);
-			echo json_encode($email);
+			echo json_encode($result);
+			ChromePhp::log(json_encode($result));
 		}
 		
 		function readUserController($action, $searchItem){
@@ -68,7 +68,7 @@
 		
 		
 		function updateUser($userID, $firstName, $lastName, $email, $phone, $latitude, $longitude, $usePayPal, $payPalEmail, $emailAlert, $SMSAlert) {
-			
+			ChromePhp::log($_SERVER);
 			$dbQuery = sprintf("UPDATE `HelpConnectUser` SET `FirstName`='%s',`LastName`='%s',`Email`='%s',`Phone`='%s',`Latitude`='%s',`Longitude`='%s',`UsePayPal`='%s',`PayPalEmail`='%s',`EmailAlert`='%s',`SMSAlert`='%s' WHERE `UserID`='%s';", 
 				mysql_real_escape_string($firstName), 
 				mysql_real_escape_string($lastName), 
@@ -81,6 +81,9 @@
 				mysql_real_escape_string($emailAlert), 
 				mysql_real_escape_string($SMSAlert), 
 				mysql_real_escape_string($userID));
+				
+			//ChromePhp::log($dbQuery);
+			ChromePhp::log("The payment is invalid!");
 		
 			$result = getDBResultAffected($dbQuery);
 		

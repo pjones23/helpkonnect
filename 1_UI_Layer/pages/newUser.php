@@ -3,7 +3,9 @@
 </div>
 
 <div data-role="content" style="text-align:center">
-	<p>Welcome to Help Konnect!</p>
+	<p>
+		Welcome to Help Konnect!
+	</p>
 	<div data-role="fieldcontain">
 		<fieldset data-role="controlgroup">
 			<label for="newUser_firstNameInput"> First Name </label>
@@ -56,11 +58,14 @@
 			<label for="newUser_smsAlertBox"> SMS/text </label>
 		</fieldset>
 	</div>
+	<p id="AccountExistsStatus" style="display: none;">
+		An account with this email already exists.<br />Please enter a different email.
+	</p>
 	<a id="CreateUserBtn" data-role="button" onclick="createUserAndContinue();"> Create </a>
 	<a id="CancelUserBtn" data-role="button" data-rel="back"> Cancel </a>
-	
+
 	<input name="" id="newUser_FBid" placeholder="" value="" type="hidden">
-	
+
 </div>
 
 <div data-role="footer">

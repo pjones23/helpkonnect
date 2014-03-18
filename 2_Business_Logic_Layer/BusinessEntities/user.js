@@ -50,7 +50,7 @@ function locationSuccess(location) {
 	currentUser.Latitude=location.coords.latitude;
 	currentUser.Longitude=location.coords.longitude;
 	
-	updateUser(currentUser.UserID, null, currentUser.FBuserID, currentUser.FirstName, currentUser.LastName, currentUser.Email, currentUser.Phone, location.coords.latitude, location.coords.longitude, currentUser.UsePayPal, currentUser.PayPalEmail, currentUser.EmailAlert, currentUser.SMSAlert);
+	updateUser(currentUser.UserID, null, currentUser.FirstName, currentUser.LastName, currentUser.Email, currentUser.Phone, location.coords.latitude, location.coords.longitude, currentUser.UsePayPal, currentUser.PayPalEmail, currentUser.EmailAlert, currentUser.SMSAlert);
 	alert("Your location has been updated successfully!");
 }
 
@@ -97,9 +97,9 @@ function locationSuccessFromInitialization(location) {
  * ----------------------------------------------------------------------------------------------------
  */
 
-function createUser(id, FBuserID, firstName, lastName, email, phone, usePayPal, payPalEmail, emailAlert, SMSAlert) {
+function createUser(FBuserID, firstName, lastName, email, phone, usePayPal, payPalEmail, emailAlert, SMSAlert) {
 	//re visit and finish when working on front end
-	var user = new User(id, FBuserID, firstName, lastName, email, phone, null, null, usePayPal, payPalEmail, emailAlert, SMSAlert);
+	var user = new User(null, FBuserID, firstName, lastName, email, phone, null, null, usePayPal, payPalEmail, emailAlert, SMSAlert);
 	user.create();
 }
 

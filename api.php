@@ -18,8 +18,10 @@ include_once '2_Business_Logic_Layer/Helper/userHelper.php';
 		 * @url POST user
 		 */
 		function createUser(){
+			ChromePhp::log("here");
 			$userRepo = new userRepository;			
-			$userRepo->createUser($_POST['UserID'], $_POST['FirstName'], $_POST['LastName'], $_POST['Email'], $_POST['Phone'], $_POST['Latitude'], $_POST['Longitude'], $_POST['UsePayPal'], $_POST['PayPalEmail'], $_POST['EmailAlert'], $_POST['SMSAlert']);
+			$userRepo->createUser($_POST['FBUserID'], $_POST['FirstName'], $_POST['LastName'], $_POST['Email'], $_POST['Phone'], $_POST['Latitude'], $_POST['Longitude'], $_POST['UsePayPal'], $_POST['PayPalEmail'], $_POST['EmailAlert'], $_POST['SMSAlert']);
+			ChromePhp::log("here2");
 		}
 		 
 		 /**

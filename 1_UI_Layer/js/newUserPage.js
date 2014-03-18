@@ -5,17 +5,18 @@
 function navigateToNewUser(userEmail) {
 
 	$.mobile.changePage("#newUser");
-	
+
 	initializeNewUserFields(userEmail);
 
 }
 
-$('#setting_dialog').live('pageshow', function(event, ui) {
-	console.log("Settings page loaded!");
-	initializeSettingsFields();
+/*
+ $('#setting_dialog').live('pageshow', function(event, ui) {
+ console.log("Settings page loaded!");
+ initializeSettingsFields();
 
-});
-
+ });
+ */
 
 function initializeNewUserFields(userEmail) {
 	console.log("initializing new user fields");
@@ -23,20 +24,19 @@ function initializeNewUserFields(userEmail) {
 	$('input#newUser_emailInput').val(userEmail);
 
 	//set paypal radio button
-	
+
 	$('input#newUser_yesPayPal').attr("checked", false).checkboxradio("refresh");
 	$('input#newUser_noPayPal').attr("checked", true).checkboxradio("refresh");
 
 	//set request alert options
-	
+
 	$('input#newUser_emailAlertBox').attr("checked", true).checkboxradio("refresh");
-	
+
 	$('input#newUser_smsAlertBox').attr("checked", false).checkboxradio("refresh");
 
 	console.log("done initializing new user fields");
 
 }
-
 
 function createUserAndContinue() {
 	/*
@@ -45,7 +45,6 @@ function createUserAndContinue() {
 	 * check for paypal email if using paypal
 	 */
 
-	
 	console.log("creating");
 	var firstName = $('input#newUser_firstNameInput').val();
 	var lastName = $('input#newUser_lastNameInput').val();
@@ -55,7 +54,7 @@ function createUserAndContinue() {
 	var payPalEmail = $('input#newUser_PayPalEmail').val();
 	var useEmail = $('input#newUser_emailAlertBox').is(':checked');
 	var useSMS = $('input#newUser_smsAlertBox').is(':checked');
-	var id = $('input#newUser_FBid').val();
+	//var id = $('input#newUser_FBid').val();
 
 	/*
 	 * Check for phone numver if using sms
@@ -63,6 +62,10 @@ function createUserAndContinue() {
 	 * check for paypal email if using paypal
 	 */
 	var saveUser = true;
+	if ((email == null || email.length < 1)) {
+		saveUser = false;
+		alert("An email address is required.");
+	}
 
 	if (usePayPal == true && (payPalEmail == null || payPalEmail.length < 1)) {
 		saveUser = false;
@@ -79,7 +82,7 @@ function createUserAndContinue() {
 		alert("You must enter a phone number if you want to receive SMS alerts.");
 	}
 
-	console.log(id);
+	//console.log(id);
 	console.log(firstName);
 	console.log(lastName);
 	console.log(email);
@@ -90,17 +93,27 @@ function createUserAndContinue() {
 	console.log(useSMS);
 
 	if (saveUser == true) {
-		
-		createUser(id, firstName, lastName, email, phone, 0, 0, usePayPal ? 1 : 0, payPalEmail, useEmail ? 1 : 0, useSMS ? 1 : 0);
-		console.log("resetting currentUser");
-		setTimeout(function() {
-			//setCurrentUser(id);
-			console.log("exiting");
-			alert("Your profile has been created.");
 
-			//acts as the back button
-			getFBLoginStatus();
-		}, 500);
-		
+		var newUserExists = doesUserExist(email);
+
+		if (newUserExists[0] && newUserExists[1] != null) {
+			$('#AccountExistsStatus').attr("style", "color: red;");
+		} else {
+			$('#AccountExistsStatus').attr("style", "display: none;");
+			createUser(null, firstName, lastName, email, phone, usePayPal ? 1 : 0, payPalEmail, useEmail ? 1 : 0, useSMS ? 1 : 0);
+			console.log("resetting currentUser");
+			setTimeout(function() {
+				//setCurrentUser(id);
+				console.log("exiting");
+				//check if new user has been created, by checking if it has been created in database
+				alert("Your profile has been created.");
+
+				//if it has, set as current user and continue
+
+				//if not retry
+
+			}, 500);
+		}
+
 	}
 }

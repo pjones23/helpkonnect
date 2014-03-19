@@ -100,7 +100,15 @@ function locationSuccessFromInitialization(location) {
 function createUser(FBuserID, firstName, lastName, email, phone, usePayPal, payPalEmail, emailAlert, SMSAlert) {
 	//re visit and finish when working on front end
 	var user = new User(null, FBuserID, firstName, lastName, email, phone, null, null, usePayPal, payPalEmail, emailAlert, SMSAlert);
-	user.create();
+	var promise = user.create();
+	
+	userID = null;
+	promise.success(function(data) {
+		console.log("attempt: " + data.success)
+		userID= data;
+	});
+	
+	return userID;
 }
 
 function readUserByEmail(email) {

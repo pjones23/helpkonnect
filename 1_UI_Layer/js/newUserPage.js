@@ -100,13 +100,15 @@ function createUserAndContinue() {
 			$('#AccountExistsStatus').attr("style", "color: red;");
 		} else {
 			$('#AccountExistsStatus').attr("style", "display: none;");
-			createUser(null, firstName, lastName, email, phone, usePayPal ? 1 : 0, payPalEmail, useEmail ? 1 : 0, useSMS ? 1 : 0);
+			var newUserID = createUser(null, firstName, lastName, email, phone, usePayPal ? 1 : 0, payPalEmail, useEmail ? 1 : 0, useSMS ? 1 : 0);
 			console.log("resetting currentUser");
 			setTimeout(function() {
-				//setCurrentUser(id);
+				console.log(newUserID.UserID);
+				setCurrentUser(newUserID.UserID);
 				console.log("exiting");
 				//check if new user has been created, by checking if it has been created in database
 				alert("Your profile has been created.");
+				$.mobile.changePage("#home");
 
 				//if it has, set as current user and continue
 

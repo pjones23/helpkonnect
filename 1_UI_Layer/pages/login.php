@@ -1,3 +1,4 @@
+<!--
 <div data-theme="a" data-role="header">
 	<h3> Help Konnect </h3>
 </div>
@@ -7,3 +8,4 @@
 <div data-theme="a" data-role="footer" data-position="fixed">
 	&nbsp;
 </div>
+-->

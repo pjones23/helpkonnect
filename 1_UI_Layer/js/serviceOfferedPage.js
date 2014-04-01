@@ -33,7 +33,7 @@ function addService() {
 }
 
 
-$('#servicesOffered').live('pageshow', function(event, ui) {
+$(document).on('pageshow', '#servicesOffered', function(event, ui) {
 	console.log("services offered page loaded!");
 	populateServicesOfferedList();
 });

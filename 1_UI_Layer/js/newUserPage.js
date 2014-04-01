@@ -11,7 +11,7 @@ function navigateToNewUser(userEmail) {
 }
 
 /*
- $('#setting_dialog').live('pageshow', function(event, ui) {
+ $(document).on('pageshow', '#setting_dialog', function(event, ui) {
  console.log("Settings page loaded!");
  initializeSettingsFields();
 

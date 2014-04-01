@@ -4,11 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Help Konnect</title>
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
 		<link href="/Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/1_UI_Layer/css/cover.css" rel="stylesheet">
 		<link href="/1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
-		<link href="/1_UI_Layer/css/signin.css" rel="stylesheet">	
+		<link href="/1_UI_Layer/css/signin.css" rel="stylesheet">
 
 	</head>
 	<body>
@@ -20,13 +19,13 @@
 		?>
 
 		<!-- Welcome -->
-		
+
 		<div data-role="page" id="login">
-		<?php
-		include 'welcome.php';
-		?>
+			<?php
+			include 'welcome.php';
+			?>
 		</div>
-		
+
 		<!-- Home -->
 		<div data-role="page" id="home">
 			<?php
@@ -100,10 +99,9 @@
 			include 'authorizeRequest.php';
 			?>
 		</div>
-		
-		
-		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
 		<!-- <script src="/Utilities/paypal-button.min.js"></script> -->
 		<script src="/Utilities/sandbox-paypal-button.min.js"></script>
@@ -114,6 +112,9 @@
 		<script src="/2_Business_Logic_Layer/BusinessEntities/serviceStatus.js"></script>
 
 		<script src="/1_UI_Layer/js/loginProcesses.js"></script>
+
+		<!-- Scripts for Home -->
+		<script src="/1_UI_Layer/js/home.js"></script>
 
 		<!-- Scripts for New User -->
 		<script src="/1_UI_Layer/js/newUserPage.js"></script>
@@ -132,7 +133,7 @@
 
 		<!-- Scripts for Requested Services -->
 		<script src="/1_UI_Layer/js/serviceRequestsPage.js"></script>
-		
+
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<!-- <script src="/Utilities/bootstrap/js/bootstrap.min.js"></script> -->
 

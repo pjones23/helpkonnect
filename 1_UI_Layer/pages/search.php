@@ -1,10 +1,11 @@
+<!--
 <div data-theme="a" data-role="header">
 	<a data-rel="back" data-icon='back' data-transition="slide" data-iconpos="notext" class="ui-btn-left"></a>
 	<a data-role="button" data-inline="true" href="#home" data-icon="home" data-theme="c" 
 	data-iconpos="left"> Home </a>
 	<h3> Help Konnect </h3>
 </div>
-
+-->
 <div id="searchPageContent" data-role="content">
 	<div data-role="fieldcontain">
 		<fieldset data-role="controlgroup">
@@ -12,7 +13,7 @@
 			<input name="" id="searchInput" placeholder="" value="" type="search">
 		</fieldset>
 
-		<a onclick="createMarkers();" data-role="button">Location</a>
+		<a onclick="createMarkers();" data-role="button">Search</a>
 	</div>
 	<div id="map-canvas"></div>
 
@@ -48,8 +49,8 @@
 	</div>
 
 </div>
-
+<!--
 <div data-theme="a" data-role="footer" data-position="fixed">
 	&nbsp;
 </div>
-
+-->

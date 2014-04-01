@@ -11,7 +11,7 @@ function navigateToRequestsPage() {
 }
 
 
-$('#serviceRequests').live('pageshow', function(event, ui) {
+$(document).on('pageshow', '#serviceRequests', function(event, ui) {
 	console.log("requests page loaded!");
 	populateServiceRequestList();
 });

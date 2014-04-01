@@ -11,14 +11,14 @@ function initialize() {
 	var mapOptions = {
 		//set the default center location to Tech Tower
 		center : new google.maps.LatLng(33.772457, -84.394699),
-		zoom : 8,
+		zoom : 16,
 		mapTypeId : google.maps.MapTypeId.ROADMAP
 	};
 	var mapCanvas = document.getElementById("map-canvas");
 	var mapCanvasParent = mapCanvas.parentNode;
 	//mapCanvas.style.width = mapCanvasParent.style.width;
 	mapCanvas.style.width = "100%";
-	var newHeight = screen.availHeight * 0.75;
+	var newHeight = screen.availHeight * 0.5;
 	mapCanvas.style.height = newHeight + "px";
 	map = new google.maps.Map(mapCanvas, mapOptions);
 }
@@ -98,7 +98,7 @@ function navigateToSearchPage() {
 }
 
 
-$('#search').live('pageshow', function(event, ui) {
+$(document).on('pageshow', '#search', function(event, ui) {
 	console.log("Search page loaded!");
 	if (map == null) {
 		initialize();

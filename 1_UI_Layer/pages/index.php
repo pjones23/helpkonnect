@@ -5,10 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Help Konnect</title>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-		<link href="/Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!--
+        <link href="/Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
-		<link href="/1_UI_Layer/css/signin.css" rel="stylesheet">
-
+        <link href="/1_UI_Layer/css/signin.css" rel="stylesheet">
+        -->
 	</head>
 	<body>
 		<!-- <div id="fb-root"></div>

@@ -10,7 +10,7 @@
 	<div data-role="fieldcontain">
 		<fieldset data-role="controlgroup">
 			<label for="searchInput"> </label>
-			<input name="" id="searchInput" placeholder="" value="" type="search">
+			<input name="" id="searchInput" placeholder="" value="" type="search" onsubmit="alert('hello');">
 		</fieldset>
 
 		<a onclick="createMarkers();" data-role="button">Search</a>

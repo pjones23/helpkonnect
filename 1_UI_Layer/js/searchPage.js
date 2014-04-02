@@ -21,6 +21,7 @@ function initialize() {
 	var newHeight = screen.availHeight * 0.5;
 	mapCanvas.style.height = newHeight + "px";
 	map = new google.maps.Map(mapCanvas, mapOptions);
+    updateUserLocationOnMap();
 }
 
 function updateUserLocationOnMap() {
@@ -119,6 +120,9 @@ function removeMapDiv() {
 //The title of the markers will be in the following format: <service id>-<service owner id>-<service requester id>
 function createMarkers() {
 	clearMarkers();
+    
+    updateUserLocationOnMap();
+    
 	services = [];
 
 	var currentUser = getCurrentUser();

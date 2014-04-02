@@ -1,18 +1,18 @@
 /**
  * @author Perron
  */
-$(document).ready(function(){
-	//$( "#homeNavPanel" ).panel( "close" );
+$(document).ready(function() {
+    //$( "#homeNavPanel" ).panel( "close" );
 });
 
-function operatePanel(){
+function operatePanel() {
     $("#homeNavPanel").panel("toggle");
 }
 
 $(document).on('pageshow', '#home', function(event, ui) {
-	console.log("Map loaded!");
-	if (map == null) {
-		initialize();
-	}
+    console.log("Map loaded!");
+    if (map == null) {
+        initialize();
+    }
 
 });

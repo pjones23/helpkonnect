@@ -2,13 +2,13 @@
 	<!-- panel content goes here -->
 		<ul>
 			<li>
-				<a onclick="navigateToSearchPage();" data-transition="slidefade" data-theme="" data-icon=""> Search for Service </a>
-			</li>
-			<li>
 				<a onclick="navigateToServicesOfferedPage();" data-transition="slidefade" data-theme="" data-icon=""> My Offered Services </a>
 			</li>
 			<li>
 				<a onclick="navigateToRequestsPage();" data-transition="slidefade"  data-theme="" data-icon=""> My Requested Services </a>
+			</li>
+            <li>
+				<a data-rel="dialog" href="#setting_dialog" data-transition="slidefade" data-theme="" data-icon=""> Account Settings </a>
 			</li>
             <li>
 				<a onclick="logout();" data-transition="slidefade"  data-theme="" data-icon=""> Log Out </a>
@@ -27,9 +27,7 @@
 ?>
 
 <div data-role="content" style="text-align:center">
-	<a data-rel="dialog" href="#setting_dialog" data-role="button" data-icon="gear" data-inline="true" >Settings</a>
-	<br />
-	<a onclick="obtainLocation();" data-role="button" data-icon="check" data-inline="true" >Check In</a>
+	<a onclick="obtainLocation();updateUserLocationOnMap();" data-role="button" data-icon="check" data-inline="true" >Check In</a>
 </div>
 
 

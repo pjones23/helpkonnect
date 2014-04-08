@@ -61,3 +61,22 @@ function initiateCurrentUser(user) {
 	setCurrentUser(user.UserID);
 
 }
+
+function logout(){
+    $.ajax({
+		url : "sess",
+		context : document.body,
+		async : false,
+		type : 'DELETE',
+		dataType : "json",
+		success : function(data) {
+            console.log("Data Success");
+            console.log(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+		}
+	});
+    window.location.href = "http://beta.helpkonnect.com";
+}

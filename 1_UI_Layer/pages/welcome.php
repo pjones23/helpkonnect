@@ -10,11 +10,12 @@
 		<title>HelpKonnect</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
+        <!--
 		<link href="/Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/1_UI_Layer/css/cover.css" rel="stylesheet">
 		<link href="/1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
 		<link href="/1_UI_Layer/css/signin.css" rel="stylesheet">
-
+        -->
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>

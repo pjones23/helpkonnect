@@ -5,11 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Help Konnect</title>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-		<!--
-        <link href="/Utilities/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/1_UI_Layer/css/helpkonnect.css" rel="stylesheet">
-        <link href="/1_UI_Layer/css/signin.css" rel="stylesheet">
-        -->
+
 	</head>
 	<body>
 		<!-- <div id="fb-root"></div>
@@ -17,6 +13,8 @@
 		<!-- ---------------------------------------------------------------------------------------- -->
 		<?php
 		include $_SERVER["DOCUMENT_ROOT"] . 'ChromePhp.php';
+        session_start();
+        ChromePhp::log("starting session");
 		?>
 
 		<!-- Welcome -->
@@ -137,6 +135,15 @@
 
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<!-- <script src="/Utilities/bootstrap/js/bootstrap.min.js"></script> -->
+        
+        <script>
+            var curLocation = window.location.href;
+            //console.log(window.location.href);
+            //console.log(curLocation);
+            if(curLocation != "http://beta.helpkonnect.com/"){
+                refreshCurrentUser();
+            }
+        </script>
 
 	</body>
 </html>

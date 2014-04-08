@@ -1,6 +1,7 @@
 <div data-role="panel" id="homeNavPanel" data-position="right" data-display="reveal" >
 	<!-- panel content goes here -->
-		<ul>
+		<ul data-role="listview" data-icon="false">
+            <li date-role="list-divider" role="heading">Menu</li>
 			<li>
 				<a onclick="navigateToServicesOfferedPage();" data-transition="slidefade" data-theme="" data-icon=""> My Offered Services </a>
 			</li>

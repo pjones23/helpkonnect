@@ -183,13 +183,36 @@ include_once '2_Business_Logic_Layer/Helper/userHelper.php';
 		*/  
 		
 		/**
-		 * @url GET current
+		 * @url GET sess
 		 */
-		function getCurrentUser(){
+		function getUserSession(){
 			ChromePhp::log("inside retrieveCurrentUserInSession");
 			retrieveCurrentUserInSession();
 		}
-		 
+        
+        /**
+		 * @url POST sess
+		 */
+		function setUserSession(){
+			ChromePhp::log("inside storeCurrentUserInSession");
+			storeCurrentUserInSession($_POST['UserID']);
+		}
+        
+        /**
+		 * @url DELETE sess
+		 */
+		function removeCurrentUserInSession(){
+			ChromePhp::log("inside removeCurrentUserInSession");
+			removeCurrentUserInSession();
+		}
+        
+        
+        /**
+		 * @url GET php
+		 */
+		function getphpinfo(){
+			phpinfo();
+		}
 
 		
     }

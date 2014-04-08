@@ -19,6 +19,27 @@ function setCurrentUser(userID){
 		console.log("user exists");
 		console.log(user);
 		
+        //set session User ID
+        $.ajax({
+			url : "sess",
+			data : {
+				'UserID' : userID
+
+			},
+			context : document.body,
+			async : false,
+			type : 'POST',
+			dataType : "json",
+			success : function(data) {
+				console.log("Data Success");
+				console.log(data);
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				console.log("Status: " + textStatus);
+				console.log("Error: " + errorThrown);
+			}
+		});
+        
 		//update position
 		currentUser = user;
 		//obtainLocation(); //The position is updated automatically when this method is called.
@@ -31,8 +52,54 @@ function setCurrentUser(userID){
 	
 }
 
-function getCurrentUser()
+
+function refreshCurrentUser()
 {
+    console.log("inside refreshCurrentUser");
+    // will return -1 if there is no user session
+    var promise = $.ajax({
+		url : "sess",
+		context : document.body,
+		async : false,
+		type : 'GET',
+		dataType : "json",
+		success : function(data) {
+            console.log("Data Success");
+            console.log(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+            console.log("Status: " + textStatus);
+            console.log("Error: " + errorThrown);
+		}
+	});
+    
+    // get the returned user ID
+	var userID = null;
+	
+	promise.success(function(data) {
+		console.log("attempt: " + data.success)
+		userID = data;
+	});
+    
+    // if user has session, set the current user, if not, go back to sign in page
+    if(userID >= 0){
+        // set the current user
+        setCurrentUser(userID);
+        if(window.location.href == "http://beta.helpkonnect.com"){ // window.location.href = "http://www.helpkonnect.com";
+            console.log("Going to home");
+            $.mobile.changePage("#home");
+        }
+    }
+    else{
+        // go back to home page sign in
+        console.log(userID);
+        //window.location.href = "http://www.helpkonnect.com";
+        window.location.href = "http://beta.helpkonnect.com";
+    }
+}
+
+function getCurrentUser()
+{     
 	return currentUser;
 }
 

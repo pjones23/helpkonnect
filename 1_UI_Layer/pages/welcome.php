@@ -26,19 +26,15 @@
 
 	<body>
 
-		<div class="site-wrapper">
-
-			<div class="site-wrapper-inner">
-
-				<div class="cover-container">
+		<div class="site-wrapper" style="text-align:center">
 
 					<div class="inner cover">
 						<h1 class="cover-heading">Helpkonnect</h1>
-						<p class="lead">
+						<p >
 							Search. Connect. Collaborate.
 						</p>
-						<p class="lead">
-							<form id="signinForm" form-signin" role="form" >
+						<p>
+							<form id="signinForm" class="form-signin" role="form" >
 								<h4 class="form-signin-heading">Please sign in</h4>
 								<p id="AccountFoundStatus" style="display: none;">
 									Your account was not found. Please Try Again.
@@ -55,7 +51,7 @@
 								<p class="text-muted">
 									OR
 								</p>
-								<a class="btn btn-lg btn-primary btn-block" onclick="navigateToNewUser('');" role="button" style="background-color: rgb(204,204,0); color:black;">Sign up today</a>
+								<button class="btn btn-lg btn-primary btn-block" onclick="navigateToNewUser('');" role="button" style="background-color: rgb(204,204,0); color:black;">Sign up today</button>
 								<br />
 								<a href="#" class="btn btn-lg btn-default btn-block">Learn more</a>
 							</form>
@@ -72,10 +68,6 @@
 							</footer>
 						</div>
 					</div>
-
-				</div>
-
-			</div>
 
 		</div>
 

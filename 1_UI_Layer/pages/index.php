@@ -13,7 +13,7 @@
 		<!-- ---------------------------------------------------------------------------------------- -->
 		<?php
 		include $_SERVER["DOCUMENT_ROOT"] . 'ChromePhp.php';
-        session_start();
+        //session_start();
         ChromePhp::log("starting session");
 		?>
 

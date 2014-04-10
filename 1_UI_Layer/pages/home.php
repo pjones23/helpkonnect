@@ -1,7 +1,7 @@
 <div data-role="panel" id="homeNavPanel" data-position="right" data-display="reveal" >
 	<!-- panel content goes here -->
 		<ul data-role="listview" data-icon="false">
-            <li date-role="list-divider" role="heading">Menu</li>
+            <li date-role="list-divider" role="heading" data-theme="b">Menu</li>
 			<li>
 				<a onclick="navigateToServicesOfferedPage();" data-transition="slidefade" data-theme="" data-icon=""> My Offered Services </a>
 			</li>
@@ -27,11 +27,8 @@
 	include 'search.php';
 ?>
 
-<div data-role="content" style="text-align:center">
-	<a onclick="obtainLocation();updateUserLocationOnMap();" data-role="button" data-icon="check" data-inline="true" >Check In</a>
-</div>
-
+<a onclick="obtainLocation();updateUserLocationOnMap();" data-role="button" data-theme="b" data-icon="check" >Check In</a>
 
 <div data-theme="a" data-role="footer" data-position="fixed">
-
+<p></p>
 </div>

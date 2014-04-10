@@ -6,25 +6,25 @@
 	<div data-role="fieldcontain">
 		<fieldset data-role="controlgroup">
 			<label for="firstNameInput"> First Name </label>
-			<input name="" id="firstNameInput" placeholder="" value="" type="text">
+			<input name="" id="firstNameInput" placeholder="First Name" value="" type="text">
 		</fieldset>
 	</div>
 	<div data-role="fieldcontain" id="lastNameInput">
 		<fieldset data-role="controlgroup">
 			<label for="lastNameInput"> Last Name </label>
-			<input name="" id="lastNameInput" placeholder="" value="" type="text">
+			<input name="" id="lastNameInput" placeholder="Last Name" value="" type="text">
 		</fieldset>
 	</div>
 	<div data-role="fieldcontain" id="emailInput">
 		<fieldset data-role="controlgroup">
 			<label for="emailInput"> Email </label>
-			<input name="" id="emailInput" placeholder="" value="" type="email">
+			<input name="" id="emailInput" placeholder="Email" value="" type="email">
 		</fieldset>
 	</div>
 	<div data-role="fieldcontain" id="phoneInput">
 		<fieldset data-role="controlgroup">
 			<label for="phoneInput"> Phone # </label>
-			<input name="" id="phoneInput" placeholder="" value="" type="tel">
+			<input name="" id="phoneInput" placeholder="Phone #" value="" type="tel">
 		</fieldset>
 	</div>
 	<div id="PayPalOption" data-role="fieldcontain">
@@ -41,7 +41,7 @@
 	<div data-role="fieldcontain" id="PayPayEmail">
 		<fieldset data-role="controlgroup">
 			<label for="PayPalEmail"> PayPal Email (optional) </label>
-			<input name="" id="PayPalEmail" placeholder="" value="" type="email">
+			<input name="" id="PayPalEmail" placeholder="PayPal Email (optional)" value="" type="email">
 		</fieldset>
 	</div>
 	<div id="requestAlertInput" data-role="fieldcontain">

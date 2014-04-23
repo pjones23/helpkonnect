@@ -2,6 +2,9 @@
  * @author PerronJones
  */
 
+/*
+ * sends notifications to the user via text/email depending on the user's options
+ */
 function alertUser(email, phone, emailAlert, smsAlert, subject, message) {
 	
 
@@ -25,6 +28,9 @@ function alertUser(email, phone, emailAlert, smsAlert, subject, message) {
 	}
 }
 
+/*
+ * sends an email notification
+ */
 function sendEmail(to, subject, message) {
 	console.log("Sending email");
 	return $.ajax({
@@ -49,6 +55,9 @@ function sendEmail(to, subject, message) {
 	});
 }
 
+/*
+ * sends an sms notification using Twilio services
+ */
 function sendSMS(to, subject, message) {
 	console.log("Sending email");
 	return $.ajax({

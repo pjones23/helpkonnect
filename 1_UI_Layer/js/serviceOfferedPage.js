@@ -6,6 +6,9 @@
  * @author PerronJones
  */
 
+/*
+ * Navigate to the offered services page
+ */
 function navigateToServicesOfferedPage() {
 
 	console.log("changeToServicesOfferedPage");
@@ -14,6 +17,9 @@ function navigateToServicesOfferedPage() {
 
 }
 
+/*
+ * Allows the user to add/offer a new service
+ */
 function addService() {
 	var currentUser = getCurrentUser();
 	console.log("Adding Service");
@@ -38,13 +44,18 @@ $(document).on('pageshow', '#servicesOffered', function(event, ui) {
 	populateServicesOfferedList();
 });
 
+/*
+ * Populates the page with the offered services
+ */
 function populateServicesOfferedList() {
 
 	var currentUser = getCurrentUser();
 
 	var services = readAllServicesByUser(currentUser.UserID);
 
+	// empty/refresh the offered services list
 	$('#offeredServicesListView').empty();
+	// add each offered service to the list
 	if (services != null && services.length > 0) {
 		for (var i = 0; i < services.length; i++) {
 			//$('#requestedServicesListView').append('<li><a onclick="createServicePageWindow(' + services[i].ServiceID + ', ' + currentUser.UserID + ', &quot;' + chosenMarkerName + '&quot;)">' + services[i].Description + '</a></li>');
@@ -56,6 +67,9 @@ function populateServicesOfferedList() {
 
 }
 
+/*
+ * Populate the fields in the edit service dialog with the chosen service's information
+ */
 function populateEditServicesDialog(serviceID, serviceOwnerID, description, cost) {
 
 	console.log("initializing fields");
@@ -83,6 +97,7 @@ function populateEditServicesDialog(serviceID, serviceOwnerID, description, cost
 
 	});
 
+	// delete the service
 	$('#editServiceDeleteBtn').click(function() {
 		console.log("executing delete");
 		deleteService(serviceID);
@@ -100,16 +115,22 @@ function populateEditServicesDialog(serviceID, serviceOwnerID, description, cost
 		allowSamePageTransition : true
 	});
 
+	// refresh the list
 	populateSpecificServiceRequestsList(serviceID);
 
 }
 
+/*
+ * Populate the service requests for the selected offered service
+ */
 function populateSpecificServiceRequestsList(serviceID) {
 	console.log("inside populateSpecificServiceRequestsList");
 
 	var serviceRequests = readAllServiceStatusesByService(serviceID);
 
+	// empty the list
 	$('#specificServiceRequestsListView').empty();
+	// populate the requests list
 	if (serviceRequests != null && serviceRequests.length > 0) {
 		for (var i = 0; i < serviceRequests.length; i++) {
 			var serviceRequester = readUser(serviceRequests[i].RequesterUserID);
@@ -147,6 +168,9 @@ function populateSpecificServiceRequestsList(serviceID) {
 
 }
 
+/*
+ * create the dialog for service owner to approve a service request
+ */
 function createSpecificRequestAuthorizationDialog(serviceStatusID, serviceID, listItemString, option) {
 
 	console.log("inside createSpecificRequestAuthorizationDialog");

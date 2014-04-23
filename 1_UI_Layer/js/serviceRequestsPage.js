@@ -2,6 +2,9 @@
  * @author PerronJones
  */
 
+/*
+ * Navigate to the page showing requested services
+ */
 function navigateToRequestsPage() {
 
 	console.log("changeToRequestsPage");
@@ -10,19 +13,26 @@ function navigateToRequestsPage() {
 
 }
 
-
+/*
+ * Populates the page with requested services when the page is shown
+ */
 $(document).on('pageshow', '#serviceRequests', function(event, ui) {
 	console.log("requests page loaded!");
 	populateServiceRequestList();
 });
 
+/*
+ * Populates the requests services
+ */
 function populateServiceRequestList() {
 
 	var currentUser = getCurrentUser();
 
 	var serviceRequests = readAllServiceStatusesByServiceRequester(currentUser.UserID);
 
+	// empty/refresh the list
 	$('#requestedServicesListView').empty();
+	// append the requested services to the list view
 	if (serviceRequests != null && serviceRequests.length > 0) {
 		for (var i = 0; i < serviceRequests.length; i++) {
 			var serviceOwner = readUser(serviceRequests[i].ServiceOwnerID);
@@ -39,6 +49,9 @@ function populateServiceRequestList() {
 
 }
 
+/*
+ * Create the dialog for users to request a service when they click on a map pin
+ */
 function createRequestedServicePreviewDialog(serviceStatusID, serviceOwnerID, serviceDescription, serviceID, serviceCost) {
 
 	console.log("inside createRequestedServicePreviewDialog");

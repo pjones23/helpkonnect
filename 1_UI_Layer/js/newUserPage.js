@@ -2,6 +2,9 @@
  * @author PerronJones
  */
 
+/*
+ * Navigate to the create new user page
+ */
 function navigateToNewUser(userEmail) {
 
 	$.mobile.changePage("#newUser");
@@ -18,6 +21,9 @@ function navigateToNewUser(userEmail) {
  });
  */
 
+/*
+ * initializes the field to be populated by a new user
+ */
 function initializeNewUserFields(userEmail) {
 	console.log("initializing new user fields");
 
@@ -38,6 +44,11 @@ function initializeNewUserFields(userEmail) {
 
 }
 
+/*
+ * creates the new user
+ * sets the current user
+ * navigate to the home page
+ */
 function createUserAndContinue() {
 	/*
 	 * Check for phone numver if using sms
@@ -92,6 +103,7 @@ function createUserAndContinue() {
 	console.log(useEmail);
 	console.log(useSMS);
 
+	// create the user and continue to the home page if all the information is valid
 	if (saveUser == true) {
 
 		var newUserExists = doesUserExist(email);

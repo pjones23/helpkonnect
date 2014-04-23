@@ -2,12 +2,18 @@
  * @author PerronJones
  */
 
+/**
+ * Initialize the input fields on the settings page  
+ */
 $(document).on('pageshow', '#setting_dialog', function(event, ui) {
 	console.log("Settings page loaded!");
 	initializeSettingsFields();
 
 });
 
+/**
+ * Navigate to the settings page 
+ */
 function navigateToSettings() {
 
 	//initializeSettingsFields();
@@ -19,6 +25,9 @@ function navigateToSettings() {
 
 }
 
+/*
+ *  Initializes the settings field with the current user's information
+ */
 function initializeSettingsFields() {
 	console.log("initializing fields");
 	var currentUser = getCurrentUser();
@@ -56,6 +65,9 @@ function initializeSettingsFields() {
 
 }
 
+/*
+ * Saves the settings and returns back to the home screen
+ */
 function SaveSettingsAndExit() {
 	/*
 	 * Check for phone numver if using sms

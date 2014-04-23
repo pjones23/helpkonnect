@@ -2,6 +2,9 @@
  * @author PerronJones
  */
 
+/*
+ * Logs the user in upon the form being submitted
+ */
 $('#signinForm').submit(function(event){
     // cancels the form submission
     event.preventDefault();
@@ -12,6 +15,9 @@ $('#signinForm').submit(function(event){
     return false;
 });
 
+/*
+ * logs the user in and navigates to the home page
+ */
 function loginUser() {
 	
 	var email = $('#signinEmail').val();
@@ -29,6 +35,9 @@ function loginUser() {
 	
 }
 
+/*
+ * Checks if the user has an account
+ */
 function doesUserExist(email) {
 	var user = readUserByEmail(email);
 
@@ -53,6 +62,10 @@ function doesUserExist(email) {
 
  }
  */
+
+/*
+ * initializes the current user for use throughout the rest of the application
+ */
 function initiateCurrentUser(user) {
 	console.log("loginProcesses.js(initiateCurrentUser): initiating current user");
 	console.log("loginProcesses.js(initiateCurrentUser): " + user);
@@ -62,6 +75,9 @@ function initiateCurrentUser(user) {
 
 }
 
+/*
+ * logs out the user
+ */
 function logout(){
     $.ajax({
 		url : "sess",

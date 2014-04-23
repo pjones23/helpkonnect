@@ -6,6 +6,9 @@ var map;
 var markers = [];
 var services = [];
 
+/*
+ * initialize the google map for the search functionality
+ */
 function initialize() {
 	console.log("Initializing Google map");
 	var mapOptions = {
@@ -24,6 +27,9 @@ function initialize() {
     updateUserLocationOnMap();
 }
 
+/*
+ * updates the user's location on the google map
+ */
 function updateUserLocationOnMap() {
 
 	//clear existing markers
@@ -62,6 +68,9 @@ function updateUserLocationOnMap() {
 
 }
 
+/*
+ * Clear all the markers/pins on the google map
+ */
 function clearMarkers() {
 	//clear existing markers
 	console.log("clearing");
@@ -74,6 +83,9 @@ function clearMarkers() {
 	markers = [];
 }
 
+/*
+ * Set the location markers on the google map
+ */
 function setMarkers() {
 	//set existing markers
 	console.log("setting");
@@ -85,6 +97,10 @@ function setMarkers() {
 	}
 }
 
+/*
+ * Navigate to the search page
+ * This creates the map div to hold the google map
+ */
 function navigateToSearchPage() {
 	markers = [];
 	removeMapDiv();
@@ -107,10 +123,16 @@ $(document).on('pageshow', '#search', function(event, ui) {
 
 });
 
+/*
+ * create the div to hold the google map
+ */
 function createMapDiv() {
 	$('#searchPageContent').append('<div id="map-canvas"></div>');
 }
 
+/*
+ * remove the div to hold the google map
+ */
 function removeMapDiv() {
 	map = null;
 	$('#map-canvas').remove();
@@ -167,6 +189,9 @@ function createMarkers() {
 	}
 }
 
+/*
+ * Creates a dialog when a user clicks on map marker/pin that shows a list of the services offered by the person at that marker
+ */
 function createServiceChoiceDialog(chosenMarker) {
 
 	console.log(chosenMarker);
@@ -204,6 +229,10 @@ function createServiceChoiceDialog(chosenMarker) {
 
 }
 
+/*
+ * creates the page showing the service's information when the user selects a service
+ * it allows the user to actually request the service
+ */
 function createServicePageWindow(serviceID, userID, userName) {
 	console.log("inside createServicePageWindow");
 	console.log(serviceID);
@@ -235,6 +264,9 @@ function createServicePageWindow(serviceID, userID, userName) {
 
 }
 
+/*
+ * modifies the service dialog with the chosen service's information
+ */
 function modifyServiceDialog(service, serviceOwnerName) {
 	console.log("inside modifyServiceDialog");
 	var description = service.Description;
@@ -245,6 +277,9 @@ function modifyServiceDialog(service, serviceOwnerName) {
 	$('#SubDialogServiceCost').text("Cost of Service: $" + cost);
 }
 
+/*
+ * creates a service request for the chosen service
+ */
 function createServiceRequest(serviceID, serviceOwnerID, serviceRequesterID) {
 	console.log("inside createServiceRequest");
 	console.log("service:" + serviceID);

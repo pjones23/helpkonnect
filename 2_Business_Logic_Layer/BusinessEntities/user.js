@@ -4,7 +4,9 @@
 
 var currentUser;
 
-
+/*
+ * sets the current user for use throughout the application
+ */
 function setCurrentUser(userID){
 	
 	//check if user exist. if the user does not exist, then create the user. 
@@ -52,7 +54,9 @@ function setCurrentUser(userID){
 	
 }
 
-
+/*
+ * refreshes the current user if the page is reload
+ */
 function refreshCurrentUser()
 {
     console.log("inside refreshCurrentUser");
@@ -98,11 +102,17 @@ function refreshCurrentUser()
     }
 }
 
+/*
+ * returns the current user
+ */
 function getCurrentUser()
 {     
 	return currentUser;
 }
 
+/*
+ * obtains the user's location using HTML5's geolocation
+ */
 function obtainLocation() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
@@ -111,6 +121,9 @@ function obtainLocation() {
 	}
 }
 
+/*
+ * sets the current user's location upon the successful gathering of location
+ */
 function locationSuccess(location) {
 	console.log("location: " + location);
 	
@@ -121,6 +134,9 @@ function locationSuccess(location) {
 	alert("Your location has been updated successfully!");
 }
 
+/*
+ * alerts upon failed gathering of location
+ */
 function locationError(error) {
 	switch(error.code) {
 		case error.PERMISSION_DENIED:
@@ -140,6 +156,9 @@ function locationError(error) {
 	alert("Your location update has failed! Please try again.");
 }
 
+/*
+ * obtains the user's location when the home page is being initialized
+ */
 function obtainLocationFromInitialization() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(locationSuccessFromInitialization, locationError);

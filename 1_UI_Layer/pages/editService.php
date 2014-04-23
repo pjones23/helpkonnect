@@ -5,13 +5,13 @@
 	<div data-role="fieldcontain" id="editDescriptionField">
 		<fieldset data-role="controlgroup">
 			<label for="editDescriptionField"> Description </label>
-			<input name="" id="editDescriptionField" placeholder="" value="" type="text">
+			<input name="" id="editDescriptionField" placeholder="Description" value="" type="text">
 		</fieldset>
 	</div>
 	<div data-role="fieldcontain" id="editCostField">
 		<fieldset data-role="controlgroup">
 			<label for="editCostField"> Cost (currency: USD - do not include the dollar sign, &quot;$&quot;): </label>
-			<input name="" id="editCostField" placeholder="" value="" type="text">
+			<input name="" id="editCostField" placeholder="Cost (USD - do not include dollar sign, $)" value="" type="text">
 		</fieldset>
 	</div>
 	<br />

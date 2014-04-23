@@ -1,7 +1,7 @@
 <?php
 
 require_once "/opt/lampstack-5.4.10-0/php/lib/php/Mail.php";
-require_once "/opt/lampstack-5.4.10-0/php/lib/php/twilio-twilio-php-c1ad9c4/Services/Twilio.php";
+require_once "/opt/lampstack-5.4.10-0/php/lib/php/twilio-php-master/Services/Twilio.php";
 
 function sendEmail($to, $subject, $message) {
 	try {
@@ -49,7 +49,7 @@ function sendSMS($to, $subject, $message) {
 		// Step 3: instantiate a new Twilio Rest Client
 		$client = new Services_Twilio($AccountSid, $AuthToken);
 
-		$sms = $client -> account -> sms_messages -> create("+17065509584", $to, $message);
+		$sms = $client -> account -> messages -> sendMessage("+17065509584", $to, $message);
 
 		// Display a confirmation message on the screen
 		ChromePhp::log("Sent SMS");

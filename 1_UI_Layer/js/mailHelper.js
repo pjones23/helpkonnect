@@ -13,11 +13,13 @@ function alertUser(email, phone, emailAlert, smsAlert, subject, message) {
 		sendEmail(email, subject, message);
 		if (smsAlert == "1") {
 			//send SMS
+            console.log("sending text to " + phone);
 			sendSMS(phone, subject, message);
 		}
 	} else {
 		if (smsAlert == "1") {
 			//send SMS
+            console.log("sending text to " + phone);
 			sendSMS(phone, subject, message);
 		}
 	}
